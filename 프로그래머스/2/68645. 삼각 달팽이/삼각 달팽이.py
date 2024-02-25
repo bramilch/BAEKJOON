@@ -31,5 +31,8 @@ def solution(n):
     for i in range(n):
         for j in range(i + 1):
             answer.append(square[i][j])
-            
+    
+    # 정삼각형으로 만든 경우
+    # sum(triangle,[])
+    
     return answer
