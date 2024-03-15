@@ -14,11 +14,11 @@ def solution(maps):
     while queue:
         y, x = queue.pop(0)
         
-        for i in range(4): # 현재 위치에서 4 방향
+        for i in range(4): # 현재 위치에서 4 방향 다 살펴봄
             ny = y + dy[i] 
             nx = x + dx[i]
             if 0 <= ny < n and 0 <= nx < m and maps[ny][nx] == 1: # maps 범위 안이고 1일 경우 이동
-                    queue.append((ny, nx))
+                    queue.append((ny, nx)) # 갈 수 있는 곳은 다 추가
                     maps[ny][nx] = maps[y][x] + 1 # 이동한 위치에 직접 step 계산. 1로만 표시되어 있기 때문에 가능.
     
     if maps[n - 1][m - 1] == 1: # 목적지가 step 값이 아닌 그대로라면, 갈 수 없다는 의미이므로 -1 return
