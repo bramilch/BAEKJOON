@@ -9,7 +9,7 @@ def solution(jobs):
     
     while num < len(jobs):
         for job in jobs:
-            if last < job[0] <= current: # 요청 시간보다 이전 작업 완료 시간보다 커야하고, 현재 시간보다 작거나 같으면
+            if last < job[0] <= current: # 요청 시간이 이전 작업 완료 시간보다 커야하고, 현재 시간보다 작거나 같으면
                 heapq.heappush(heap, [job[1], job[0]]) # Min Heap에 [소요 시간, 요청 시간]으로 넣어준다.
         
         if heap: # 수행해야 할 작업이 있는 경우
