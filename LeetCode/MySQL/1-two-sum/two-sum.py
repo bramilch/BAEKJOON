@@ -9,19 +9,27 @@ class Solution:
         #             return [i, j]
         
         # Two Pointers
-        new_nums = [[v, i] for i, v in enumerate(nums)]
-        new_nums.sort(key=lambda x:x[0])
+        # new_nums = [[v, i] for i, v in enumerate(nums)]
+        # new_nums.sort(key=lambda x:x[0])
         
-        l, r = 0, len(nums)-1
-        while l < r:
-            nums_sum = new_nums[l][0] + new_nums[r][0]
-            if nums_sum > target:
-                r -= 1
-            elif nums_sum < target:
-                l += 1
-            else:
-                return [new_nums[l][1], new_nums[r][1]]
-        
+        # l, r = 0, len(nums)-1
+        # while l < r:
+        #     nums_sum = new_nums[l][0] + new_nums[r][0]
+        #     if nums_sum > target:
+        #         r -= 1
+        #     elif nums_sum < target:
+        #         l += 1
+        #     else:
+        #         return [new_nums[l][1], new_nums[r]]
+
+        # Hash Table
+        nums_dict = {}
+        for i, num in enumerate(nums):
+            remainder = target - num
+            if remainder in nums_dict:
+                return [nums_dict[remainder], i]
+            nums_dict[num] = i
+
 
 
 
